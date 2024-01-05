@@ -25,11 +25,11 @@ public partial class CustomerDbContext : DbContext
     {
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC07B02BE6AA");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07D7585651");
 
             entity.ToTable("Customer");
 
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
             entity.Property(e => e.EmailAddress)
                 .HasMaxLength(100)
                 .IsUnicode(false);
@@ -41,6 +41,7 @@ public partial class CustomerDbContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.MiddleName).HasMaxLength(50);
             entity.Property(e => e.PhoneNumber).HasColumnType("numeric(18, 0)");
+            entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
         });
 
         OnModelCreatingPartial(modelBuilder);

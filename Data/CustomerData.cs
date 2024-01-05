@@ -14,6 +14,8 @@ namespace CustomerApi.Data
         {
             try
             {
+                customer.CreatedDate = DateTime.Now;
+                customer.UpdatedDate = DateTime.Now;
                 _context.Customers.Add(customer);
                 _context.SaveChanges();
                 return true;
@@ -62,6 +64,7 @@ namespace CustomerApi.Data
                 dbCustomer.PhoneNumber =  customer.PhoneNumber;
                 dbCustomer.EmailAddress = customer.EmailAddress;
                 dbCustomer.MiddleName =    customer.MiddleName;
+                dbCustomer.UpdatedDate = System.DateTime.Now;
                 _context.SaveChanges();
                 return true;
             }

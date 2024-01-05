@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CustomerApi.Models;
 
 public partial class Customer
 {
-    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     public string FirstName { get; set; } = null!;
@@ -18,4 +16,8 @@ public partial class Customer
     public decimal? PhoneNumber { get; set; }
 
     public string? EmailAddress { get; set; }
+
+    public DateTime CreatedDate { get; set; }
+
+    public DateTime UpdatedDate { get; set; }
 }
